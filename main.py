@@ -12,13 +12,13 @@ app = Flask(__name__)
 def index(): # el nombre de la ruta es el nombre de la funcion
     return"aprendiendo flask"
 
+#parametro opcional
 @app.route('/informacion')
-def informacion():
-    return "<h1>Informacion</h1>"
-
-@app.route('/informacion(<string:nombre>')
-def informacion(nombre):
+#parametro obligatorio
+@app.route('/informacion/<string:nombre>')
+def informacion(nombre = 'default'):
     return f"<h1>Hola, {nombre}:Informacion</h1>"
+
 
 @app.route('/contacto')
 def contacto():
