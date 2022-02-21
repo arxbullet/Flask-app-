@@ -1,4 +1,5 @@
-from flask import Flask
+from django.shortcuts import redirect
+from flask import Flask, url_for
 #inicio 
 #1. instalar flask  : pip install Flask
 #2. crear archivo main en carpeta en donde instalamos Flask
@@ -21,14 +22,17 @@ def informacion(nombre = 'default'):
 
 
 @app.route('/contacto')
-def contacto():
+@app.route('/contacto/<redireccion>')
+def contacto(redireccion = None):
+
+    if redireccion is not None:
+        return redirect(url_for('lenguajes'))
+
     return "<h1>Contacto</h1>"
 
-@app.route('/leguajes')
+@app.route('/lenguajes')
 def lenguajes():
     return "<h1>Lenguajes</h1>"
-
-
 
 if __name__ == '__main__':
     app.run(debug=True)
