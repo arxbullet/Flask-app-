@@ -16,6 +16,10 @@ def index(): # el nombre de la ruta es el nombre de la funcion
 def informacion():
     return "<h1>Informacion</h1>"
 
+@app.route('/informacion(<string:nombre>')
+def informacion(nombre):
+    return f"<h1>Hola, {nombre}:Informacion</h1>"
+
 @app.route('/contacto')
 def contacto():
     return "<h1>Contacto</h1>"
