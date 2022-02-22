@@ -8,12 +8,12 @@
         {% endblock%}
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
+        <link rel="stylesheet" href="{{url_for( 'static', filename= 'css/styles.css')}}">
     </head>
     <body>
 
         <nav>
-            <ul>
+            <ul>|
                 <li> 
                     <a href = "{{url_for('index')}}"> inicio </a>
                 </li>
