@@ -2,9 +2,5 @@
 
 {%block content%}
         <h1>contacto</h1> 
-        <ul>
-        {%for persona in personas%}
-               <li>{{loop.index}} nombre :{{ persona}}</li>
-        {%endfor%}
-        </ul>
+        {%include 'includes/personas.html'%}
 {%endblock%}
