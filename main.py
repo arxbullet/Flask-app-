@@ -30,8 +30,9 @@ def contacto(redireccion = None):
 
 @app.route('/lenguajes')
 def lenguajes():
-
-    return render_template('lenguajes.html')
+    return render_template('lenguajes.html', 
+                            dato1='dato1',
+                            dato2='dato2')
     
     #return "<h1>Lenguajes</h1>"
 
