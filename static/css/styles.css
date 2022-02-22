@@ -1,4 +1,308 @@
+*{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-decoration: none;
+    margin: 2px;
+    padding: 1px;
+    
+    }
+
 body{
  background:#ccc;
  font-family:'Courier New', Courier, monospace;
 }
+
+.alert,
+.alert-success{
+    padding: 20px;
+    background:#1f7e50;
+    color: white;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.alert-error{
+    padding: 20px;
+    background:red;
+    color: white;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+
+.clearfix{
+    clear: both;
+    float: none;
+}
+
+header{
+    width: 1212px;
+    height: 140px;
+    background-color: black;
+    color: white;
+    margin: 0 auto;
+}
+
+#logotipo{
+    width: 35%;
+    height: 140px;
+    margin: auto;
+    padding-top: 20px;
+}
+
+#logotipo img{
+    display: block;
+    float: left;
+    width: 60px;
+    margin-top: 20px;
+    margin-right: 10px;
+}
+
+#logotipo h1{
+    display: block;
+    margin-top: 20px;
+    margin-left: 20px;
+    letter-spacing: 2px;
+    font-weight: 100;
+    color: white;
+}
+
+nav{
+    width: 1250px;
+    height: 50px;
+    background-color: #1b1e1f;
+    border: 1px solid #333333;
+    margin: 0 auto;
+    box-shadow: 0px 22px 22px gray;
+    font-size: 15px;
+}
+
+nav > ul{
+    list-style: none;
+    text-decoration: none;
+}
+
+nav > ul > li{
+    line-height: 40px;
+    float: left;
+}
+
+nav > ul > li > a{
+    display: block;
+    padding: 0px 20px 0px 20px ;
+    color: #d1d4d6;
+}
+
+nav > ul > li > a:hover{
+    background-color: #2ba977;
+    box-shadow: 0px 0px 5px #333333 inset;
+    color:white;
+    transition: all 300ms;
+}
+
+nav > ul > li > ul{
+    display: none;
+    position: absolute;
+    color: white;
+    text-align: left;
+    width: 160px;
+    box-shadow: 0px 2px 2px gray;
+}
+
+
+nav > ul > li:hover > ul{
+    display: block;
+    color: white;
+    margin: 0px;
+    list-style: none;
+}
+
+nav > ul > li:hover> ul > li{
+    background: #f2f1f0;
+    border-bottom: 1px solid #d6d6d6;
+    padding: 8px;
+    line-height: 25px;
+    font-size: 13px;
+    transition: all 300ms;
+}
+
+nav > ul > li > ul > li a{
+    color: #666;
+    transition: all 300ms;
+}
+
+nav > ul > li > ul > li:hover{
+   background-color: #1f7e50;
+}
+
+nav > ul > li > ul > li:hover a{
+    display: block;
+    color: white;
+}
+
+.barra{
+    width: 1250px;
+    margin: 0 auto;
+    margin-bottom: 40px;
+}
+
+.esquina-izquierda{
+    display: block;
+    border-left: 20px solid transparent;
+    border-top: 10px solid #2b2f30;
+    float: left;
+}
+
+.esquina-derecha{
+    display: block;
+    border-right: 20px solid transparent;
+    border-top: 10px solid #2b2f30;
+    float: right;
+}
+
+.relleno{
+    display: block;
+    width: 1190px;
+    background-color: #2b2f30;
+    height: 10px;
+    float: left;
+}
+
+#content{
+    width: 1250px;
+    min-height: 930px;
+    margin: 0 auto;
+    margin-bottom: 30px;
+    margin-top: 20px;
+}
+
+.rojo{
+    color: red;
+    box-shadow: 0px 00px 4px black;
+}
+
+.article{
+    margin-bottom: 20px;
+    margin-top: 20px;
+    border: 1px solid #eee;
+    
+}
+
+.article .image{
+   width: 200px;
+   height: 200px;
+   float: left;  
+   overflow: hidden;
+   clear: both;
+}
+
+.article .image .img{
+    height: 200px;
+}
+
+.article .data{
+    float: left;
+    padding: 15px;
+}
+
+.box{
+    background: white;
+    width: 90%;
+    min-height: 930px;
+    padding: 20px;
+    border: 1px solid #ddd;
+}
+
+.box a{
+    color: #444;
+
+}
+
+.box .image{
+    float:left;
+    margin-right: 20px;
+    width: 45%;
+}
+
+.box .image img{
+    width: 100%;
+}
+
+.box a:hover{
+    color: #1f7e50;
+    transition: all 100ms;
+}
+
+.box form{
+    width: 40%;
+}
+
+.box form input,
+.box form label{
+    display: block;
+    padding: 5px;
+    padding-left: 0px;
+}
+
+
+.box form input[type="text"],
+.box form input[type="email"],
+.box form input[type="password"],
+.box form textarea{
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.box form select{
+    width: 100px;
+    padding:5px;
+}
+
+.box form input[type="submit"],
+.box form input[type="button"],
+.box form button{
+    padding: 10px;
+    margin-top: 5px;
+    background:#2ba977;
+    border: 1px solid #444;
+    color: white;
+    transition: 300ms;
+}
+
+.box form input[type="submit"]:hover,
+.box form input[type="button"]:hover,
+.box form button :hover{
+    background:#1f7e50;
+    cursor: pointer;
+}
+
+.title{
+    color: #444;
+    letter-spacing: 1px;
+    font-size: 30px;
+    margin-bottom: 10px;
+    margin-top: 5px;
+}
+
+.date{
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    color: gray;
+}
+
+.content{
+    line-height: 25px;
+}
+
+footer{
+    width: 1250px;
+    background-color: #1b1e1f;
+    border: 1px solid #333;
+    color: #d1d4d6;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    box-shadow: 0px 0px 20px gray;
+    margin: 0 auto;
+}
+

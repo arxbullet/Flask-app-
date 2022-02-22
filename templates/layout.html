@@ -3,14 +3,18 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        {% block title%}
             <title>aprendiendo flask</title>
-        {% endblock%}
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="{{url_for( 'static', filename= 'css/styles.css')}}">
     </head>
     <body>
+        <header>
+            <div id="logotipo">
+            <img src="{{url_for( 'static', filename= 'media/logo.png')}}"></img>
+            <h1>sitio web con flask</h1>
+            </div>
+        </header>
 
         <nav>
             <ul>|
@@ -29,11 +33,22 @@
                 
             </ul>
             </nav>
-        </hr>
-
-        {% block content%}
-
-        {% endblock%}
-        <script src="" async defer></script>
+            <div class="barra">
+                <span class="esquina-izquierda"></span>    
+                <span class="relleno"></span>   
+                <span class="esquina-derecha"></span>  
+            </div> 
+    
+            <div id="content">
+                <div class="box">
+                    {% block title%}
+                    <h2 class = 'title'> titulo de prueba</h2>
+                    {% endblock %}
+                    <br>
+                    {% block content%}
+                    <strong>contenido por defecto</strong>
+                    {% endblock %}
+                </div>
+            </div>
     </body>
 </html>
