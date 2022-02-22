@@ -1,10 +1,17 @@
 from flask import Flask, url_for, redirect, render_template
+from datetime import datetime
 #inicio 
 #1. instalar flask  : pip install Flask
 #2. crear archivo main en carpeta en donde instalamos Flask
 #3. iniciar app con python main.py
 #instanciar app y frmawork para usarlo
 app = Flask(__name__)
+
+@app.context_processor
+def date_now():
+    return{
+        'now':datetime.utcnow()
+    }
 
 #crear ruta app
 
