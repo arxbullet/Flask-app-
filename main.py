@@ -33,10 +33,12 @@ def informacion(nombre = 'default'):
 @app.route('/contacto')
 @app.route('/contacto/<redireccion>')
 def contacto(redireccion = None):
+    personas = ['juan', 'pedro', 'diego']
     if redireccion is not None:
         return redirect(url_for('lenguajes'))
    # return "<h1>Contacto</h1>"
-    return render_template('contacto.html')
+    return render_template('contacto.html', 
+                            personas = personas)
 
 @app.route('/lenguajes')
 def lenguajes():
