@@ -17,7 +17,10 @@ def date_now():
 
 @app.route('/')
 def index(): # el nombre de la ruta es el nombre de la funcion
-    return render_template('index.html')
+    edad = 18
+
+    return render_template('index.html', 
+                            edad=edad)
 
 #parametro opcional
 @app.route('/informacion')

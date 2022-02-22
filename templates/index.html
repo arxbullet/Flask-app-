@@ -6,6 +6,14 @@
 
 {%block content%}
         <h1>aprendiendo flask</h1>
+
+        {% if edad >= 18%}
+                <h2>eres mayor de edad</h2>
+                  tu edad es : {{edad}}
+        {%else %}
+                 <h2>eres menor de edad</h2>
+                  tu edad es : {{edad}}
+        {%endif%}
 {%endblock%}
 
 {#
