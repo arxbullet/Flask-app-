@@ -1,0 +1,21 @@
+{% extends 'layout.html'%}
+{%block title%}
+      {{super () }}<!--no sobrescribir bloque, si no que añadir-->  |inicio
+
+{%endblock%}
+
+{%block content%}
+        <h1>nuevo auto</h1>
+
+        {% if edad >= 18%}
+                <h2>eres mayor de edad</h2>
+                  tu edad es : {{edad}}
+        {%else %}
+                 <h2>eres menor de edad</h2>
+                  tu edad es : {{edad}}
+        {%endif%}
+{%endblock%}
+
+{#
+        esto es un comentario
+#}
