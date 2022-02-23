@@ -1,19 +1,28 @@
 {% extends 'layout.html'%}
 {%block title%}
-      {{super () }}<!--no sobrescribir bloque, si no que añadir-->  |inicio
+      {{super () }}<!--no sobrescribir bloque, si no que añadir-->  
 
 {%endblock%}
 
 {%block content%}
         <h1>nuevo auto</h1>
 
-        {% if edad >= 18%}
-                <h2>eres mayor de edad</h2>
-                  tu edad es : {{edad}}
-        {%else %}
-                 <h2>eres menor de edad</h2>
-                  tu edad es : {{edad}}
-        {%endif%}
+        <form action = method='POST'>
+            <label for="marca"> Marca </label>
+            <input type='text' name='marca' placeholder='pon la marca del articulo'></input> 
+        
+            <label for="modelo"> Modelo </label>
+            <input type='text' name='modelo' placeholder='pon el modelo del articulo'></input>  
+        
+            <label for="precio"> Precio </label>
+            <input type='text' name='precio' placeholder='pon el precio del articulo'></input> 
+
+            <label for="ciudad"> Ciudad </label>
+            <input type='text' name='ciudad' placeholder='pon la ciudad del articulo'></input> 
+            
+            <input type="submit" value="guardar"/>
+        </form>
+
 {%endblock%}
 
 {#
