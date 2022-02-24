@@ -7,6 +7,14 @@
 {%block content%}
         <h1>aprendiendo flask</h1>
 
+        {% with messages = get_flashed_messages() %}
+                {%if  messages %}
+                        {% for message in messages%}
+                          <div class='alert'>{{message}}</div>
+                 {%endfor%}
+                {%endif%}
+        {% endwith %}
+
         {% if edad >= 18%}
                 <h2>eres mayor de edad</h2>
                   tu edad es : {{edad}}

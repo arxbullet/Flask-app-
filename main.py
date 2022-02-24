@@ -1,4 +1,4 @@
-from flask import Flask, url_for, redirect, render_template, request
+from flask import Flask, flash ,url_for, redirect, render_template, request
 from datetime import datetime
 from flask_mysqldb import MySQL 
 #inicio 
@@ -15,6 +15,8 @@ app.config['MYSQL_PASSWORD'] = ''
 app.config['MYSQL_DB'] = 'proyectoflask'
 
 mysql = MySQL(app)
+
+app.secret_key = 'clave secreta de flask'
 
 @app.context_processor
 def date_now():
@@ -57,17 +59,20 @@ def lenguajes():
     
     #return "<h1>Lenguajes</h1>"
 
-@app.route('/crear-coche')
+@app.route('/crear-coche', methods=['GET','POST'])
 def crear_coche():
     if request.method == 'POST':
-        cursor = mysql.connection.cursor()
-        cursor.execute(f"INSERT INTO auto VALUES(null, 'Lambo', 'gallardo', 1000, 'los angeles')")
-        cursor.connection.commit()
-        return redirect(url_for('index'))
+        marca = request.form['marca']
+        modelo = request.form['modelo']
+        precio= request.form['precio']
+        ciudad = request.form['ciudad']
 
-    return render_template('crear_coche.html', 
-                            dato1='dato1',
-                            dato2='dato2')
+        cursor = mysql.connection.cursor()
+        cursor.execute("INSERT INTO auto VALUES(NULL, %s, %s, %s, %s)",(marca, modelo, precio, ciudad))
+        cursor.connection.commit()
+        flash('has creado el coche correctamente')
+        return redirect(url_for('index'))
+    return render_template('crear_coche.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
