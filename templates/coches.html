@@ -1,0 +1,39 @@
+{% extends 'layout.html'%}
+{%block title%}
+      {{super () }}<!--no sobrescribir bloque, si no que añadir-->  |inicio
+
+{%endblock%}
+
+{%block content%}
+        <h1>autos </h1>
+        {% with messages = get_flashed_messages() %}
+        {%if  messages %}
+                {% for message in messages%}
+                  <div class='alert'>{{message}}</div>
+         {%endfor%}
+        {%endif%}
+        {% endwith %}
+        {% for coche in coches %}
+            <article class='article'>   
+    
+                <div >
+                    <h2>
+                        {{coche.1}} 
+                    </a> 
+                    </h2>
+                <br>
+                {{coche.2}} 
+                ${{coche.3}} 
+                {{coche.4}} 
+                
+                <p>
+                    <a href ="{{url_for('coche', coche_id=coche.0)}}" class='btn btn-warning'>Editar</a>
+                    
+                    <a href ="{{url_for('borrar_coche', coche_id=coche.0)}}" class='btn '>Eliminar</a>
+                </p>  
+                
+                    </div>
+            </article>
+            <br/>
+        {% endfor %}
+{%endblock%}

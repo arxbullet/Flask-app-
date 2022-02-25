@@ -74,5 +74,32 @@ def crear_coche():
         return redirect(url_for('index'))
     return render_template('crear_coche.html')
 
+@app.route('/coches', methods=['GET','POST'])
+def coches():
+    cursor = mysql.connection.cursor()
+    cursor.execute("SELECT * FROM auto")
+    coches = cursor.fetchall()
+    cursor.close()
+
+    return render_template('coches.html', coches=coches)
+
+@app.route('/coche/<coche_id>')
+def coche(coche_id):
+    cursor = mysql.connection.cursor()
+    cursor.execute("SELECT * FROM auto WHERE id = %s", (coche_id))
+    coche = cursor.fetchall()
+    cursor.close()
+
+    return render_template('coche.html', coche=coche[0])
+
+@app.route('/borrar_coche/<coche_id>')
+def borrar_coche(coche_id):
+    cursor = mysql.connection.cursor()
+    cursor.execute("DELETE * FROM auto WHERE id = %s", (coche_id))
+    mysql.connection.commit()
+    flash('el auto ha sido removido correctamente')
+
+    return redirect('coches')
+
 if __name__ == '__main__':
     app.run(debug=True)
