@@ -92,14 +92,44 @@ def coche(coche_id):
 
     return render_template('coche.html', coche=coche[0])
 
+@app.route('/editar_coche/<coche_id>', methods=['GET','POST'])
+def editar_coche(coche_id):
+    
+    if request.method == 'POST':
+        marca = request.form['marca']
+        modelo = request.form['modelo']
+        precio= request.form['precio']
+        ciudad = request.form['ciudad']
+
+        cursor = mysql.connection.cursor()
+        cursor.execute("""
+            UPDATE auto
+            SET marca = %s,
+                modelo = %s,
+                precio = %s,
+                ciudad = %s,
+            WHERE id = %s
+         """),(marca, modelo, precio, ciudad, coche_id)
+        cursor.connection.commit()
+        flash('has editado el auto correctamente')
+
+        return redirect('coches')
+
+    cursor = mysql.connection.cursor()
+    cursor.execute("SELECT * FROM auto WHERE id = %s", (coche_id))
+    coche = cursor.fetchall()
+    cursor.close()
+
+    return render_template('coche.html', coche=coche[0])
+
 @app.route('/borrar_coche/<coche_id>')
 def borrar_coche(coche_id):
     cursor = mysql.connection.cursor()
-    cursor.execute("DELETE * FROM auto WHERE id = %s", (coche_id))
+    cursor.execute(f"DELETE FROM auto WHERE id = {coche_id}")
     mysql.connection.commit()
     flash('el auto ha sido removido correctamente')
 
-    return redirect('coches')
+    return redirect('index')
 
 if __name__ == '__main__':
     app.run(debug=True)
